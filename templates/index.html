@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Currency Converter{% endblock %}
+
+{% block content %}
+<form action="/result" method="GET">
+    <label for="convert-from">Starting Currency:</label>
+    <input type="text" name="convert-from" id="convert-from" placeholder="e.g., USD">
+    <label for="convert-to">Ending Currency:</label>
+    <input type="text" name="convert-to" id="convert-to" placeholder="e.g., GPB">
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" id="amount" placeholder="100" step="0.01">
+    <button>Convert</button>
+</form>
+{% endblock%}
