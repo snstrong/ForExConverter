@@ -2,12 +2,18 @@
 {% block title %}Currency Converter{% endblock %}
 
 {% block content %}
-<table>
-    <tr>
-        <td>Starting Amount</td> <td>{{starting_amount}}</td>
-    </tr>
-    <tr>
-        <td>Ending Amount</td> <td>{{converted_amount}}</td>
-    </tr>
+<table class="table table-borderless">
+    <tbody>
+        <tr class="row table-secondary">
+            <td class="col">Starting Amount</td> <td class="col">{{symbol_1}}{{starting_amount}} {{convert_from}}</td>
+        </tr>
+        <tr class="row table-primary">
+            <td class="col">Converted Amount</td> <td class="col">{{symbol_2}}{{converted_amount}} {{convert_to}}</td>
+        </tr>
+    </tbody>
 </table>
+<form action="/">
+    <button class="btn btn-primary">Home</button>
+</form>
+
 {% endblock%}

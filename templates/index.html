@@ -2,13 +2,24 @@
 {% block title %}Currency Converter{% endblock %}
 
 {% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="list-group mb-4">
+    {% for message in messages %}
+      <li class="list-group-item list-group-item-danger">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 <form action="/result" method="GET">
-    <label for="convert-from">Starting Currency:</label>
-    <input type="text" name="convert-from" id="convert-from" placeholder="e.g., USD">
-    <label for="convert-to">Ending Currency:</label>
-    <input type="text" name="convert-to" id="convert-to" placeholder="e.g., GPB">
-    <label for="amount">Amount:</label>
-    <input type="number" name="amount" id="amount" placeholder="100" step="0.01">
-    <button>Convert</button>
+    <div class="form-group">
+        <label class="mb-1" for="convert-from">Starting Currency:</label>
+        <input type="text" class="form-control form-control-lg" name="convert-from" id="convert-from" placeholder="e.g., USD" aria-placeholder="e.g., USD" required>
+        <label class="mt-4 mb-1" for="convert-to">Ending Currency:</label>
+        <input type="text" class="form-control form-control-lg" name="convert-to" id="convert-to" placeholder="e.g., GBP" aria-placeholder="e.g., GBP" required>
+        <label class="mt-4 mb-1" for="amount">Amount:</label>
+        <input type="number" class="form-control form-control-lg" name="amount" id="amount" placeholder="100" step="0.01" required aria-placeholder="100">
+        <button class="btn btn-primary mt-4">Convert</button>
+    </div>   
 </form>
 {% endblock%}
